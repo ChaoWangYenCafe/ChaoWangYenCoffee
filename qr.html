@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+   <meta charset="UTF-8">
+   <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
+   <link rel="stylesheet" href="qrcss.css"> <!-- เพิ่มลิงก์ไปยังไฟล์ CSS -->
+</head>
+<body>
+   <img src="logo.png" alt="โลโก้ร้านกาแฟ" class="logo">
+   <h2>ชำระเงินผ่านพร้อมเพย์</h2>
+   
+   <h3>รายการสินค้าที่คุณสั่งซื้อ</h3>
+   <ul id="order-list"></ul> <!-- รายการสินค้าที่สั่งซื้อ -->
+   <p id="total-price">รวม: 0 บาท</p> <!-- ยอดรวมทั้งหมด -->
+
+   <form id="paymentForm">
+      <label for="amount">ยอดรวม</label>
+      <input type="number" id="amount" name="amount" readonly required> <label for="amount">บาท</label>
+
+      <!-- เพิ่มช่องกรอกเบอร์โทรศัพท์ -->
+      <label for="phone">เบอร์โทรศัพท์</label>
+      <input type="tel" id="phone" name="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
+
+      <button type="button" onclick="generateQRCode()">สร้าง QR Code</button>
+      
+      <!-- ฟิลด์สำหรับการแนบสลิบเงิน -->
+      <label for="paymentSlip">แนบสลิบเงิน</label>
+      <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" onchange="previewImage(event)">
+
+      <div id="imagePreviewContainer">
+         <img id="paymentSlipPreview" style="display: none; max-width: 100%; margin-top: 20px;">
+         <button type="button" id="removeImageBtn" style="display: none;" onclick="removeImage()">ลบรูปภาพ</button>
+      </div>
+
+      <!-- ปุ่มสั่งซื้อ -->
+      <button type="button" id="orderBtn" disabled onclick="placeOrder()">สั่งซื้อ</button>
+   </form>
+
+   <div id="qrcode-container">
+      <img id="qrcode" />
+   </div>
+   <button id="save-btn" onclick="saveQRCode()">บันทึก QR Code</button>
+   <button onclick="goBack()">กลับไปยังตะกร้า</button>
+
+   <script>
+      // ดึงข้อมูลจาก URL query (amount) ที่ส่งจากหน้า cafe.html
+      const urlParams = new URLSearchParams(window.location.search);
+      const amount = urlParams.get('amount');
+      document.getElementById("amount").value = amount; // แสดงยอดรวมในฟอร์ม
+
+      // ดึงข้อมูลตะกร้าสินค้าจาก localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // แสดงรายการสินค้าที่ผู้ใช้สั่งซื้อ
+      function displayOrder() {
+         const orderList = document.getElementById('order-list');
+         let total = 0;
+
+         cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.product} - ${item.quantity} ชิ้น (ราคา: ${item.price} บาท)`;
+            orderList.appendChild(li);
+            total += item.price * item.quantity;
+         });
+
+         document.getElementById('total-price').textContent = `รวม: ${total} บาท`;
+      }
+
+      displayOrder(); // แสดงรายการสินค้าที่ผู้ใช้สั่ง
+
+      // เมื่อผู้ใช้คลิกปุ่ม "สั่งซื้อ"
+      function placeOrder() {
+         // ตรวจสอบว่าได้แนบสลิบหรือไม่
+         const paymentSlip = document.getElementById('paymentSlip').files.length;
+         if (paymentSlip === 0) {
+            alert("กรุณาแนบสลิบเงินก่อนทำการสั่งซื้อ");
+            return; // ไม่ให้ดำเนินการต่อถ้ายังไม่มีการแนบสลิบ
+         }
+
+         // รับเบอร์โทรศัพท์จากฟอร์ม
+         const phone = document.getElementById('phone').value;
+
+         // เตรียมข้อมูลคำสั่งซื้อ
+         const orderData = {
+            customer_name: "Customer Name", // ใช้ข้อมูลของลูกค้า
+            customer_email: "customer@example.com", // ใช้ข้อมูลของลูกค้า
+            phone: phone,
+            total_amount: amount,
+            products: cart.map(item => ({
+               product: item.product,
+               quantity: item.quantity,
+               price: item.price
+            }))
+         };
+
+         // ส่งข้อมูลคำสั่งซื้อไปยัง PHP backend
+         fetch('process_order.php', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+         })
+         .then(response => response.text())
+         .then(data => {
+            alert("คำสั่งซื้อของคุณได้รับการบันทึกแล้ว");
+            localStorage.removeItem('cart');
+            window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
+         })
+         .catch(error => {
+            console.error("Error:", error);
+            alert("เกิดข้อผิดพลาดในการบันทึกคำสั่งซื้อ");
+         });
+      }
+
+      // ฟังก์ชันสร้าง QR Code
+      function generateQRCode() {
+         const promptPayId = "0917956349";  // ใส่หมายเลขพร้อมเพย์ของคุณ
+         if (amount > 0) {
+            const qrCodeUrl = `https://promptpay.io/${promptPayId}/${amount}.png`;
+            document.getElementById('qrcode').src = qrCodeUrl;
+            document.getElementById('qrcode').style.display = 'block';
+
+            const saveBtn = document.getElementById("save-btn");
+            saveBtn.style.display = 'inline'; // แสดงปุ่มบันทึก
+         } else {
+            alert("กรุณาเพิ่มสินค้าในตะกร้าก่อน");
+         }
+      }
+
+      // ฟังก์ชันแสดงตัวอย่างรูปภาพ
+      function previewImage(event) {
+         const file = event.target.files[0];
+
+         // ตรวจสอบขนาดไฟล์
+         if (file.size > 2 * 1024 * 1024) {
+            alert("ขนาดไฟล์เกินขีดจำกัด (2MB) กรุณาเลือกไฟล์ที่มีขนาดเล็กลง");
+            document.getElementById('paymentSlip').value = ""; // ลบไฟล์ที่เลือก
+            return;
+         }
+
+         const reader = new FileReader();
+         reader.onload = function() {
+            const preview = document.getElementById('paymentSlipPreview');
+            preview.src = reader.result;
+            preview.style.display = 'block'; // แสดงตัวอย่าง
+
+            // แสดงปุ่มลบ
+            document.getElementById('removeImageBtn').style.display = 'inline';
+
+            // เปิดใช้งานปุ่มสั่งซื้อ
+            document.getElementById('orderBtn').disabled = false;
+         };
+
+         if (file) {
+            reader.readAsDataURL(file);
+         }
+      }
+
+      // ฟังก์ชันลบรูปภาพ
+      function removeImage() {
+         // ลบไฟล์ที่เลือก
+         document.getElementById('paymentSlip').value = "";
+         
+         // ซ่อนตัวอย่างภาพและปุ่มลบ
+         document.getElementById('paymentSlipPreview').style.display = 'none';
+         document.getElementById('removeImageBtn').style.display = 'none';
+
+         // ปิดใช้งานปุ่มสั่งซื้อ
+         document.getElementById('orderBtn').disabled = true;
+      }
+
+      // ฟังก์ชันย้อนกลับ
+      function goBack() {
+         window.history.back();
+      }
+   </script>
+</body>
+</html>

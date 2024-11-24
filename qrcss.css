@@ -1,0 +1,342 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    margin: 0;
+    padding: 40px; /* เพิ่ม padding */
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 48px; /* ขยายขนาดฟอนต์ให้ใหญ่ขึ้น */
+    margin-bottom: 40px;
+    color: #5D3FD3;
+    text-align: center;
+}
+
+img.logo {
+    max-width: 300px; /* เพิ่มขนาดโลโก้ */
+    margin-bottom: 40px;
+}
+
+form {
+    background: #fff;
+    padding: 50px; /* เพิ่ม padding มากขึ้น */
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
+    width: 100%;
+    max-width: 800px; /* ขยายความกว้างสูงสุด */
+    text-align: center;
+}
+
+label {
+    font-size: 28px; /* ขยายขนาดฟอนต์ */
+    margin-bottom: 15px;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 20px; /* เพิ่ม padding */
+    font-size: 24px; /* ขยายขนาดฟอนต์ */
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 20px; /* เพิ่มขนาดปุ่ม */
+    font-size: 28px; /* ขยายฟอนต์ในปุ่ม */
+    color: #fff;
+    background-color: #5D3FD3;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4C2BB1;
+}
+
+#qrcode-container {
+    margin-top: 50px; /* เพิ่มระยะห่างด้านบน */
+    text-align: center;
+    display: flex;
+    justify-content: center;  /* จัดตำแหน่ง QR Code ให้อยู่กลางแนวนอน */
+    align-items: center;  /* จัดแนวตั้งกลาง */
+    height: 1;  /* ใช้ความสูงเต็มหน้าจอ */
+}
+
+#qrcode {
+    width: 10;
+    height: auto;
+    max-width: 500px; /* ขยายขนาดสูงสุดของ QR Code */
+    max-height: 700px;
+    display: none;
+}
+
+
+#save-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 24px; /* ขยายฟอนต์ของปุ่ม */
+    border-radius: 10px;
+    display: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 36px;
+    color: #5D3FD3;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#order-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+#order-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#order-list li button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#order-list li button:hover {
+    background-color: #d32f2f;
+}
+
+#total-price {
+    font-size: 22px;
+    color: #333;
+    margin-top: 20px;
+}
+
+#paymentForm {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+#paymentForm label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#paymentForm input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#paymentForm button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: #5D3FD3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#paymentForm button:disabled {
+    background-color: #ddd;
+}
+
+#paymentForm button:hover {
+    background-color: #4C2BB1;
+}
+
+#qrcode-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#qrcode {
+    width: 100%;
+    max-width: 300px;
+    display: none;
+}
+
+#save-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-btn:hover {
+    background-color: #388E3C;
+}
+
+#removeImageBtn {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+#removeImageBtn:hover {
+    background-color: #D32F2F;
+}
+
+#paymentSlipPreview {
+    max-width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+#imagePreviewContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    #order-list li {
+        font-size: 16px;
+    }
+
+    #total-price {
+        font-size: 18px;
+    }
+
+    #paymentForm {
+        padding: 20px;
+    }
+
+    #paymentForm input,
+    #paymentForm button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    #qrcode {
+        max-width: 250px;
+    }
+
+    #save-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    #removeImageBtn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    #order-list li {
+        font-size: 14px;
+    }
+
+    #total-price {
+        font-size: 16px;
+    }
+
+    #paymentForm {
+        padding: 15px;
+    }
+
+    #paymentForm input,
+    #paymentForm button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #qrcode {
+        max-width: 200px;
+    }
+
+    #save-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    #removeImageBtn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
