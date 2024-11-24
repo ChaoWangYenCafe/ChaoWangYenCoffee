@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -195,7 +195,7 @@
             <p id="total-price">รวม: 0 บาท</p>
             <button onclick="checkout()">ชำระเงิน</button>
         </div>
-    </main>
+    
 
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -251,5 +251,3 @@
 
         updateCart();
     </script>
-</body>
-</html>
