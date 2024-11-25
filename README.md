@@ -21,7 +21,7 @@
                 <div class="product-container">
                     <!-- อเมริกาโน่ -->
                     <div class="product">
-                        <img src="[https://via.placeholder.com/150](https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%82%E0%B8%99%E0%B9%88.webp)" alt="อเมริกาโน่">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%82%E0%B8%99%E0%B9%88.webp" alt="อเมริกาโน่">
                         <h2>อเมริกาโน่</h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('อเมริกาโน่', 30)">เพิ่มไปยังตะกร้า</button>
