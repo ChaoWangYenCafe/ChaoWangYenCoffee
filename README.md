@@ -225,7 +225,7 @@
 
             cart.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.innerHTML = `${item.product} - ${item.quantity} ชิ้น (ราคา: ${item.price} บาท)`;
+                li.innerHTML = `${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)`;
 
                 // สร้างปุ่มลบ
                 const removeButton = document.createElement('button');
