@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <body>
 
     <header>
-        <h1>ยินดีต้อนรับสู่</h1> ชาววัง </h3>(เย็น) Coffee</h>
+        <h1>ยินดีต้อนรับสู่</h1> ชาววัง (เย็น) Coffee
     </header>
     <main>
         
@@ -160,7 +160,7 @@
                     <button class="order-button" onclick="addToCart('ชาเขียวน้ำผึ้งมะนาว', 30)">เพิ่มไปยังตะกร้า</button>
                 </div>
                   <!-- ชาเขียวดำ -->
-                  <div class="product">
+                  <div class="product"> 
                     <img src="https://via.placeholder.com/150" alt="ชาเขียวดำ">
                     <h2>ชาเขียวดำ </h2>
                     <h3>ราคา: 30 บาท</h3>
@@ -181,12 +181,19 @@
                <button class="order-button" onclick="addToCart('ชาเขียวโอริโอ้', 30)">เพิ่มไปยังตะกร้า</button>
            </div>
                 </div>
-                 <!-- 
-                    
-                  -->
+                 <!-- เมนูนมสด -->
                 <div class="categoryhead">
                     <header><h1>เมนูนมสด</h1></header> 
-                    <div class="category"> </div>
+                    <div class="category"> </div>   
+                    <div class="product-container">
+                        <!-- นมสด -->
+                        <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="นมสด">
+                            <h2>นมสด </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('นมสด', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
+
         </div>
 
         <div id="cart">
@@ -195,7 +202,7 @@
             <p id="total-price">รวม: 0 บาท</p>
             <button onclick="checkout()">ชำระเงิน</button>
         </div>
-    
+    </main>
 
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
