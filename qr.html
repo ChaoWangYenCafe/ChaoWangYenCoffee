@@ -58,7 +58,7 @@
 
          cart.forEach(item => {
             const li = document.createElement('li');
-            li.textContent = `${item.product} - ${item.quantity} ชิ้น (ราคา: ${item.price} บาท)`;
+            li.textContent = `${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)`;
             orderList.appendChild(li);
             total += item.price * item.quantity;
          });
