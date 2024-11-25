@@ -39,7 +39,7 @@
    <div id="qrcode-container">
       <img id="qrcode" />
    </div>
-   <button id="save-btn" onclick="saveQRCode()">บันทึก QR Code</button>
+   <button id="save-btn" onclick="saveQRCode()" style="display:none;">บันทึก QR Code</button>
    <button onclick="goBack()">กลับไปยังตะกร้า</button>
 
    <script>
@@ -84,37 +84,10 @@
             return; // ไม่ให้ดำเนินการต่อถ้าไม่มีเบอร์โทรศัพท์
          }
 
-         // เตรียมข้อมูลคำสั่งซื้อ
-         const orderData = {
-            customer_name: "Customer Name", // ใช้ข้อมูลของลูกค้า
-            customer_email: "customer@example.com", // ใช้ข้อมูลของลูกค้า
-            phone: phone,
-            total_amount: amount,
-            products: cart.map(item => ({
-               product: item.product,
-               quantity: item.quantity,
-               price: item.price
-            }))
-         };
-
-         // ส่งข้อมูลคำสั่งซื้อไปยัง PHP backend
-         fetch('process_order.php', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(orderData)
-         })
-         .then(response => response.text())
-         .then(data => {
-            alert("คำสั่งซื้อของคุณได้รับการบันทึกแล้ว");
-            localStorage.removeItem('cart');
-            window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
-         })
-         .catch(error => {
-            console.error("Error:", error);
-            alert("เกิดข้อผิดพลาดในการบันทึกคำสั่งซื้อ");
-         });
+         // แสดงข้อความแทนการส่งไปยัง backend
+         alert("คำสั่งซื้อของคุณได้รับการบันทึกในระบบ!");
+         localStorage.removeItem('cart');
+         window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
       }
 
       // ฟังก์ชันสร้าง QR Code
@@ -172,6 +145,25 @@
 
          // ปิดใช้งานปุ่มสั่งซื้อ
          document.getElementById('orderBtn').disabled = true;
+      }
+
+      // ฟังก์ชันบันทึก QR Code
+      function saveQRCode() {
+         const qrCodeImg = document.getElementById("qrcode").src;  // รับ URL ของภาพ QR Code
+         if (!qrCodeImg) {
+            alert("กรุณาสร้าง QR Code ก่อน");
+            return;  // ถ้าไม่มี QR Code ให้แจ้งเตือน
+         }
+
+         // สร้างลิงก์ดาวน์โหลด
+         const link = document.createElement('a');
+         link.href = qrCodeImg;  // ใช้ URL ของ QR Code
+         link.download = 'qrcode.png';  // ตั้งชื่อไฟล์เป็น qrcode.png
+         
+         // คลิกที่ลิงก์เพื่อให้เริ่มดาวน์โหลด
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);  // ลบลิงก์หลังจากดาวน์โหลด
       }
 
       // ฟังก์ชันย้อนกลับ

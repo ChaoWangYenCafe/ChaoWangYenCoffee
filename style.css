@@ -103,11 +103,19 @@ header {
    .product-container {
        display: grid; /* ใช้ Grid Layout */
        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* สร้างแถวใหม่เมื่อพื้นที่ไม่พอ */
-       gap: 30px; /* ระยะห่างระหว่างสินค้า */
+       gap: 40px; /* ระยะห่างระหว่างสินค้า */
        justify-content: center;
    }
 
    .product {
        width: 100%; /* ให้ความกว้างของสินค้าเต็มพื้นที่ใน Grid */
    }
+}
+/* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */
+.product:hover {
+   transform: scale(1.1); /* ขยายขนาด 10% */
+   background-color: #e8f5e9; /* เปลี่ยนพื้นหลังเป็นสีเขียวอ่อน */
+   color: #317d2e; /* เปลี่ยนสีข้อความเป็นสีเขียวเข้ม */
+   box-shadow: 0 4px 15px rgba(248, 248, 248, 0.2); /* เพิ่มเงา */
+   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* การเปลี่ยนอย่างนุ่มนวล */
 }
