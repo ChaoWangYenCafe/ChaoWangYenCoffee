@@ -196,8 +196,6 @@
         <ul id="cart-items"></ul>
         <p id="total-price">รวม: 0 บาท</p>
         <button onclick="checkout()">ชำระเงิน</button>
-    </div>
-</div>
     <script src="java.js" defer></script>
 
     <script>
