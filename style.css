@@ -119,3 +119,82 @@ header {
    box-shadow: 0 4px 15px rgba(248, 248, 248, 0.2); /* เพิ่มเงา */
    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* การเปลี่ยนอย่างนุ่มนวล */
 }
+/* ตะกร้าสินค้าลอย */
+#floating-cart {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   z-index: 1000; /* ทำให้ลอยอยู่ด้านบนสุด */
+}
+
+#toggle-cart-btn {
+   background-color: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 50%;
+   padding: 15px;
+   font-size: 18px;
+   cursor: pointer;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#toggle-cart-btn:hover {
+   background-color: #45a049;
+   transform: scale(1.1); /* เพิ่มขนาดปุ่มเมื่อชี้ */
+}
+
+#cart-content {
+   display: none; /* ซ่อนตะกร้าสินค้าเริ่มต้น */
+   position: absolute;
+   bottom: 60px; /* วางเหนือปุ่ม toggle */
+   right: 0;
+   width: 300px;
+   max-height: 400px; /* จำกัดความสูง */
+   background-color: white;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   padding: 20px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+   overflow-y: auto; /* เพิ่มแถบเลื่อนถ้าข้อมูลยาวเกิน */
+}
+
+#cart-content h2 {
+   font-size: 20px;
+   margin-bottom: 10px;
+}
+
+#cart-content ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+#cart-content ul li {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+}
+/* ปุ่มแสดง/ซ่อนตะกร้าสินค้า */
+#toggle-cart-btn {
+   background-color: #ff7300; /* สีพื้นหลัง */
+   color: white;
+   border: none;
+   border-radius: 10px; /* ขอบเหลี่ยม */
+   padding: 10px 20px; /* ขนาดปุ่ม */
+   font-size: 25px; /* ขนาดข้อความ */
+   cursor: pointer;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#toggle-cart-btn:hover {
+   background-color: #ffd900; /* เปลี่ยนสีเมื่อวางเมาส์ */
+   transform: scale(1.05); /* ขยายเล็กน้อยเมื่อวางเมาส์ */
+}
+@media (max-width: 768px) {
+    #toggle-cart-btn {
+        padding: 8px 16px; /* ลดขนาดปุ่ม */
+        font-size: 14px; /* ลดขนาดข้อความ */
+    }
+}
