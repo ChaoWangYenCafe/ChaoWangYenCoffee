@@ -9,7 +9,7 @@
 <body>
 
     <header>
-        <h1>ยินดีต้อนรับสู่</h1> ชาววัง (เย็น) Coffee
+        <h1>ยินดีต้อนรับสู่</h1> ชาววัง </h3>(เย็น) Coffee</h>
     </header>
     <main>
         
@@ -27,9 +27,9 @@
                         <button class="order-button" onclick="addToCart('อเมริกาโน่', 30)">เพิ่มไปยังตะกร้า</button>
                     </div>
 
-                     <!-- ลาเต้ -->
+                    <!-- ลาเต้ -->
                     <div class="product">
-                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89.webp" alt="ลาเต้">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/b9502674a2e6e241c29f624d9981667fc8276ecd/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89.webp" alt="ลาเต้">
                         <h2>ลาเต้</h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ลาเต้', 30)">เพิ่มไปยังตะกร้า</button>
@@ -160,7 +160,7 @@
                     <button class="order-button" onclick="addToCart('ชาเขียวน้ำผึ้งมะนาว', 30)">เพิ่มไปยังตะกร้า</button>
                 </div>
                   <!-- ชาเขียวดำ -->
-                  <div class="product"> 
+                  <div class="product">
                     <img src="https://via.placeholder.com/150" alt="ชาเขียวดำ">
                     <h2>ชาเขียวดำ </h2>
                     <h3>ราคา: 30 บาท</h3>
@@ -181,28 +181,23 @@
                <button class="order-button" onclick="addToCart('ชาเขียวโอริโอ้', 30)">เพิ่มไปยังตะกร้า</button>
            </div>
                 </div>
-                 <!-- เมนูนมสด -->
+                 <!-- 
+                    
+                  -->
                 <div class="categoryhead">
                     <header><h1>เมนูนมสด</h1></header> 
-                    <div class="category"> </div>   
-                    <div class="product-container">
-                        <!-- นมสด -->
-                        <div class="product">
-                            <img src="https://via.placeholder.com/150" alt="นมสด">
-                            <h2>นมสด </h2>
-                            <h3>ราคา: 30 บาท</h3>
-                            <button class="order-button" onclick="addToCart('นมสด', 30)">เพิ่มไปยังตะกร้า</button>
-                        </div>
-
+                    <div class="category"> </div>
         </div>
 
-        <div id="cart">
-            <h2>ตะกร้าสินค้า</h2>
-            <ul id="cart-items"></ul>
-            <p id="total-price">รวม: 0 บาท</p>
-            <button onclick="checkout()">ชำระเงิน</button>
-        </div>
-    
+       <div id="floating-cart">
+    <button id="toggle-cart-btn">🛒 ตะกร้าสินค้า</button>
+    <div id="cart-content">
+        <h2>ตะกร้าสินค้า</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-price">รวม: 0 บาท</p>
+        <button onclick="checkout()">ชำระเงิน</button>
+    </div>
+    <script src="java.js" defer></script>
 
     <script>
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -225,7 +220,7 @@
 
             cart.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.innerHTML = `${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)`;
+                li.innerHTML = `${item.product} - ${item.quantity} ชิ้น (ราคา: ${item.price} บาท)`;
 
                 // สร้างปุ่มลบ
                 const removeButton = document.createElement('button');
