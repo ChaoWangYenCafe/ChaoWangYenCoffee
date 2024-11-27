@@ -9,7 +9,7 @@
 <body>
 
     <header>
-        <h1>ยินดีต้อนรับสู่</h1> ชาววัง </h3>(เย็น) Coffee</h>
+        <h1>ยินดีต้อนรับสู่</h1> ชาววัง (เย็น) Coffee
     </header>
     <main>
         
@@ -197,6 +197,7 @@
         <p id="total-price">รวม: 0 บาท</p>
         <button onclick="checkout()">ชำระเงิน</button>
     </div>
+</div>
     <script src="java.js" defer></script>
 
     <script>
