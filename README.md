@@ -27,9 +27,9 @@
                         <button class="order-button" onclick="addToCart('อเมริกาโน่', 30)">เพิ่มไปยังตะกร้า</button>
                     </div>
 
-                    <!-- ลาเต้ -->
+                     <!-- ลาเต้ -->
                     <div class="product">
-                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89.webp"alt="ลาเต้">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89.webp" alt="ลาเต้">
                         <h2>ลาเต้</h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ลาเต้', 30)">เพิ่มไปยังตะกร้า</button>
