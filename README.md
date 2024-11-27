@@ -29,7 +29,7 @@
 
                     <!-- ลาเต้ -->
                     <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="ลาเต้">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89.webp"ลาเต้">
                         <h2>ลาเต้</h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ลาเต้', 30)">เพิ่มไปยังตะกร้า</button>
@@ -37,14 +37,14 @@
 
                     <!-- เอสเปสโซ่ -->
                     <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="เอสเปสโซ่">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B9%80%E0%B8%AD%E0%B8%AA%E0%B9%80%E0%B8%9B%E0%B8%AA%E0%B9%82%E0%B8%8B%E0%B9%88.webp" alt="เอสเปสโซ่">
                         <h2>เอสเปสโซ่</h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('เอสเปสโซ่', 30)">เพิ่มไปยังตะกร้า</button>
                     </div>
                       <!-- คาปูชิโน่ -->
                       <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="คาปูชิโน่">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%84%E0%B8%B2%E0%B8%9B%E0%B8%B9%E0%B8%8A%E0%B8%B4%E0%B9%82%E0%B8%99%E0%B9%88.webp" alt="คาปูชิโน่">
                         <h2>คาปูชิโน่ </h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('คาปูชิโน่', 30)">เพิ่มไปยังตะกร้า</button>
