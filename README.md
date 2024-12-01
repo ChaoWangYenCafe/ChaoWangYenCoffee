@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -181,14 +181,126 @@
                <button class="order-button" onclick="addToCart('ชาเขียวโอริโอ้', 30)">เพิ่มไปยังตะกร้า</button>
            </div>
                 </div>
-                 <!-- 
-                    
-                  -->
+                 <!-- เมนูนมสด -->
                 <div class="categoryhead">
                     <header><h1>เมนูนมสด</h1></header> 
-                    <div class="category"> </div>
+                    <div class="category">
+                     <div class="product-container">
+                         <!-- นมสด -->
+                         <div class="product">
+                             <img src="https://via.placeholder.com/150" alt="นมสด">
+                             <h2>นมสด </h2>
+                             <h3>ราคา: 30 บาท</h3>
+                             <button class="order-button" onclick="addToCart('นมสด', 30)">เพิ่มไปยังตะกร้า</button>
+                         </div>
+                          <!-- โกโก้ -->
+                          <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="โกโก้">
+                            <h2>โกโก้ </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('โกโก้', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
+                         <!-- โยเกิร์ต -->
+                         <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="โยเกิร์ต">
+                            <h2>โยเกิร์ต </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('โยเกิร์ต', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
+                          <!-- นมสดคาราเมล -->
+                          <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="นมสดคาราเมล">
+                            <h2>นมสดคาราเมล </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('นมสดคาราเมล', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
+                        <!-- นมสดสตอเบอร์รี่ -->
+                        <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="นมสดสตอเบอร์รี่">
+                            <h2>นมสดสตอเบอร์รี่ </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('นมสดสตอเบอร์รี่', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
+                         <!-- โยเกิร์ตสตอเบอร์รี่ -->
+                         <div class="product">
+                            <img src="https://via.placeholder.com/150" alt="โยเกิร์ตสตอเบอร์รี่">
+                            <h2>โยเกิร์ตสตอเบอร์รี่ </h2>
+                            <h3>ราคา: 30 บาท</h3>
+                            <button class="order-button" onclick="addToCart('โยเกิร์ตสตอเบอร์รี่', 30)">เพิ่มไปยังตะกร้า</button>
+                        </div>
         </div>
+        <!-- เมนูโซดา -->
+        <div class="categoryhead">
+            <header><h1>เมนูโซดา</h1></header> 
+            <div class="category">
+             <div class="product-container">
+                 <!-- ลิ้นจี่ -->
+                 <div class="product">
+                     <img src="https://via.placeholder.com/150" alt="ลิ้นจี่">
+                     <h2>ลิ้นจี่ </h2>
+                     <h3>ราคา: 30 บาท</h3>
+                     <button class="order-button" onclick="addToCart('ลิ้นจี่', 30)">เพิ่มไปยังตะกร้า</button>
+                 </div>
+                  <!-- กีวี่ -->
+                  <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="กีวี่">
+                    <h2>กีวี่ </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('กีวี่', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                 <!-- ฝรั่ง -->
+                 <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="ฝรั่ง">
+                    <h2>ฝรั่ง </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('ฝรั่ง', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                 <!-- แดงโซดา -->
+                 <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="แดงโซดา">
+                    <h2>แดงโซดา </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('แดงโซดา', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                 <!-- แอบเปิ้ล -->
+                 <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="แอบเปิ้ล">
+                    <h2>แอบเปิ้ล </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('แอบเปิ้ล', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                 <!-- แอบเปิ้ล -->
+                 <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="แอบเปิ้ล">
+                    <h2>แอบเปิ้ล </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('แอบเปิ้ล', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                 <!-- สตอเบอรี่ -->
+                 <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="สตอเบอรี่">
+                    <h2>สตอเบอรี่ </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('สตอเบอรี่', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                  <!-- สัปปะรด -->
+                  <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="สัปปะรด">
+                    <h2>สัปปะรด </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('สัปปะรด', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
+                  <!-- แดงโซดามะนาว -->
+                  <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="แดงโซดามะนาว">
+                    <h2>แดงโซดามะนาว </h2>
+                    <h3>ราคา: 30 บาท</h3>
+                    <button class="order-button" onclick="addToCart('แดงโซดามะนาว', 30)">เพิ่มไปยังตะกร้า</button>
+                </div>
 
+
+
+<!--การคำนวณสินต้า-->
        <div id="floating-cart">
     <button id="toggle-cart-btn">🛒 ตะกร้าสินค้า</button>
     <div id="cart-content">
@@ -196,6 +308,7 @@
         <ul id="cart-items"></ul>
         <p id="total-price">รวม: 0 บาท</p>
         <button onclick="checkout()">ชำระเงิน</button>
+    </div>
     <script src="java.js" defer></script>
 
     <script>
