@@ -9,7 +9,7 @@
 <body>
 
     <header>
-      <br>  <h1>ยินดีต้อนรับสู่ <br> ชาววัง (เย็น) Coffee</h1>
+      <br>  <h1>ยินดีต้อนรับสู่ <br></h1> ชาววัง (เย็น) Coffee
     </header>
     <main>
         
