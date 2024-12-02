@@ -67,7 +67,7 @@
 
                     <!-- ชาเขียวลิ้นจี่ -->
                     <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="ชาเขียวลิ้นจี่">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%A7%E0%B8%A5%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B8%88%E0%B8%B5%E0%B9%88.webp" alt="ชาเขียวลิ้นจี่">
                         <h2>ชาเขียวลิ้นจี่ </h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ชาเขียวลิ้นจี่', 30)">เพิ่มไปยังตะกร้า</button>
@@ -111,7 +111,7 @@
                     </div>
                      <!-- ชามะลิ -->
                      <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="ชามะลิ">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%8A%E0%B8%B2%E0%B8%A1%E0%B8%B0%E0%B8%A5%E0%B8%B4.webp" alt="ชามะลิ">
                         <h2>ชามะลิ </h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ชามะลิ', 30)">เพิ่มไปยังตะกร้า</button>
