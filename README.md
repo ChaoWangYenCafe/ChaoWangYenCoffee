@@ -59,7 +59,7 @@
                 <div class="product-container">
                     <!-- ชาเขียว -->
                     <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="ชาเขียว">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%A7.webp" alt="ชาเขียว">
                         <h2>ชาเขียว </h2>
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ชาเขียว', 30)">เพิ่มไปยังตะกร้า</button>
@@ -87,12 +87,12 @@
                         <h3>ราคา: 30 บาท</h3>
                         <button class="order-button" onclick="addToCart('ชาเขียวสตอเบอรี่', 30)">เพิ่มไปยังตะกร้า</button>
                     </div>
-                     <!-- ชาเเย็น -->
+                     <!-- ชาเย็น -->
                      <div class="product">
-                        <img src="https://via.placeholder.com/150" alt="ชาเเย็น">
+                        <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%99.webp" alt="ชาเย็น">
                         <h2>ชาเเย็น </h2>
                         <h3>ราคา: 30 บาท</h3>
-                        <button class="order-button" onclick="addToCart('ชาเเย็น', 30)">เพิ่มไปยังตะกร้า</button>
+                        <button class="order-button" onclick="addToCart('ชาเย็น', 30)">เพิ่มไปยังตะกร้า</button>
                     </div>
                     <!-- ชาเขียวกีวี่ -->
                     <div class="product">
@@ -188,7 +188,7 @@
                      <div class="product-container">
                          <!-- นมสด -->
                          <div class="product">
-                             <img src="https://via.placeholder.com/150" alt="นมสด">
+                             <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%99%E0%B8%A1%E0%B8%AA%E0%B8%94.webp" alt="นมสด">
                              <h2>นมสด </h2>
                              <h3>ราคา: 30 บาท</h3>
                              <button class="order-button" onclick="addToCart('นมสด', 30)">เพิ่มไปยังตะกร้า</button>
@@ -202,7 +202,7 @@
                         </div>
                          <!-- โยเกิร์ต -->
                          <div class="product">
-                            <img src="https://via.placeholder.com/150" alt="โยเกิร์ต">
+                            <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B9%82%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%95.webp" alt="โยเกิร์ต">
                             <h2>โยเกิร์ต </h2>
                             <h3>ราคา: 30 บาท</h3>
                             <button class="order-button" onclick="addToCart('โยเกิร์ต', 30)">เพิ่มไปยังตะกร้า</button>
@@ -261,13 +261,6 @@
                     <h2>แดงโซดา </h2>
                     <h3>ราคา: 30 บาท</h3>
                     <button class="order-button" onclick="addToCart('แดงโซดา', 30)">เพิ่มไปยังตะกร้า</button>
-                </div>
-                 <!-- แอบเปิ้ล -->
-                 <div class="product">
-                    <img src="https://via.placeholder.com/150" alt="แอบเปิ้ล">
-                    <h2>แอบเปิ้ล </h2>
-                    <h3>ราคา: 30 บาท</h3>
-                    <button class="order-button" onclick="addToCart('แอบเปิ้ล', 30)">เพิ่มไปยังตะกร้า</button>
                 </div>
                  <!-- แอบเปิ้ล -->
                  <div class="product">
