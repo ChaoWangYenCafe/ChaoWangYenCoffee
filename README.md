@@ -9,7 +9,7 @@
 <body>
 
     <header>
-      <br>  <h1>ยินดีต้อนรับสู่ <br></h1> ชาววัง (เย็น) Coffee
+      <br>  <h1>ยินดีต้อนรับสู่ <br> ชาววัง (เย็น) Coffee</h1>
     </header>
     <main>
         
@@ -257,7 +257,7 @@
                 </div>
                  <!-- แดงโซดา -->
                  <div class="product">
-                    <img src="https://via.placeholder.com/150" alt="แดงโซดา">
+                    <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B9%81%E0%B8%94%E0%B8%87%E0%B9%82%E0%B8%8B%E0%B8%94%E0%B8%B2.webp" alt="แดงโซดา">
                     <h2>แดงโซดา </h2>
                     <h3>ราคา: 30 บาท</h3>
                     <button class="order-button" onclick="addToCart('แดงโซดา', 30)">เพิ่มไปยังตะกร้า</button>
@@ -278,14 +278,14 @@
                 </div>
                   <!-- สัปปะรด -->
                   <div class="product">
-                    <img src="https://via.placeholder.com/150" alt="สัปปะรด">
+                    <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B8%AA%E0%B8%B1%E0%B8%9B%E0%B8%9B%E0%B8%B0%E0%B8%A3%E0%B8%94.webp" alt="สัปปะรด">
                     <h2>สัปปะรด </h2>
                     <h3>ราคา: 30 บาท</h3>
                     <button class="order-button" onclick="addToCart('สัปปะรด', 30)">เพิ่มไปยังตะกร้า</button>
                 </div>
                   <!-- แดงโซดามะนาว -->
                   <div class="product">
-                    <img src="https://via.placeholder.com/150" alt="แดงโซดามะนาว">
+                    <img src="https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCafe/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/%E0%B9%81%E0%B8%94%E0%B8%87%E0%B9%82%E0%B8%8B%E0%B8%94%E0%B8%B2%E0%B8%A1%E0%B8%B0%E0%B8%99%E0%B8%B2%E0%B8%A7.webp" alt="แดงโซดามะนาว">
                     <h2>แดงโซดามะนาว </h2>
                     <h3>ราคา: 30 บาท</h3>
                     <button class="order-button" onclick="addToCart('แดงโซดามะนาว', 30)">เพิ่มไปยังตะกร้า</button>
