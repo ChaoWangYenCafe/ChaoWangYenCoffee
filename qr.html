@@ -18,6 +18,10 @@
       <label for="amount">ยอดรวม</label>
       <input type="number" id="amount" name="amount" readonly required> <label for="amount">บาท</label>
 
+      <!-- ช่องกรอกชื่อของลูกค้า -->
+      <label for="customerName">ชื่อของลูกค้า</label>
+      <input type="text" name="customerName" class="form-control" id="customerName" placeholder="กรุณากรอกชื่อ" required>
+
       <!-- ช่องกรอกเบอร์โทรศัพท์ -->
       <label for="phone">เบอร์โทรศัพท์</label>
       <input type="tel" name="phone" class="form-control" id="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
@@ -160,11 +164,13 @@
          e.preventDefault();
 
          // เพิ่มข้อมูลที่ต้องการส่งไป Google Sheets
+         const customerName = document.getElementById("customerName").value;
          const phone = document.getElementById("phone").value;
          const orderDetails = cart.map(item => `${item.product} - ${item.quantity} แก้ว`).join(", ");
          const totalAmount = document.getElementById("amount").value;
 
          const formData = new FormData(form);
+         formData.append("customerName", customerName); // เพิ่มชื่อลูกค้า
          formData.append("phone", phone);
          formData.append("orderDetails", orderDetails);
          formData.append("totalAmount", totalAmount);
