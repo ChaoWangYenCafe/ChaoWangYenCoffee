@@ -1,178 +1,188 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-   <meta charset="UTF-8">
-   <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
-   <link rel="stylesheet" href="qrcss.css"> <!-- เพิ่มลิงก์ไปยังไฟล์ CSS -->
+    <meta charset="UTF-8">
+    <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
+    <link rel="stylesheet" href="qrcss.css"> <!-- เพิ่มลิงก์ไปยังไฟล์ CSS -->
 </head>
 <body>
-   <img src="logo.png" alt="โลโก้ร้านกาแฟ" class="logo">
-   <h2>ชำระเงินผ่านพร้อมเพย์</h2>
-   
-   <h3>รายการสินค้าที่คุณสั่งซื้อ</h3>
-   <ul id="order-list"></ul> <!-- รายการสินค้าที่สั่งซื้อ -->
-   <p id="total-price">รวม: 0 บาท</p> <!-- ยอดรวมทั้งหมด -->
+    <img src="logo.png" alt="โลโก้ร้านกาแฟ" class="logo">
+    <h2>ชำระเงินผ่านพร้อมเพย์</h2>
 
-   <form id="paymentForm">
-      <label for="amount">ยอดรวม</label>
-      <input type="number" id="amount" name="amount" readonly required> <label for="amount">บาท</label>
+    <h3>รายการสินค้าที่คุณสั่งซื้อ</h3>
+    <ul id="order-list"></ul> <!-- รายการสินค้าที่สั่งซื้อ -->
+    <p id="total-price">รวม: 0 บาท</p> <!-- ยอดรวมทั้งหมด -->
 
-      <!-- เพิ่มช่องกรอกเบอร์โทรศัพท์ -->
-      <label for="phone">เบอร์โทรศัพท์</label>
-      <input type="tel" id="phone" name="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
+    <form id="paymentForm">
+        <label for="amount">ยอดรวม</label>
+        <input type="number" id="amount" name="amount" readonly required> <label for="amount">บาท</label>
 
-      <button type="button" onclick="generateQRCode()">สร้าง QR Code</button>
-      
-      <!-- ฟิลด์สำหรับการแนบสลิบเงิน -->
-      <label for="paymentSlip">แนบสลิบเงิน</label>
-      <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" onchange="previewImage(event)">
+        <!-- เพิ่มช่องกรอกเบอร์โทรศัพท์ -->
+        <label for="phone">เบอร์โทรศัพท์</label>
+        <input type="tel" id="phone" name="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
 
-      <div id="imagePreviewContainer">
-         <img id="paymentSlipPreview" style="display: none; max-width: 100%; margin-top: 20px;">
-         <button type="button" id="removeImageBtn" style="display: none;" onclick="removeImage()">ลบรูปภาพ</button>
-      </div>
+        <button type="button" onclick="generateQRCode()">สร้าง QR Code</button>
 
-      <!-- ปุ่มสั่งซื้อ -->
-      <button type="button" id="orderBtn" disabled onclick="placeOrder()">สั่งซื้อ</button>
-   </form>
+        <!-- ฟิลด์สำหรับการแนบสลิบเงิน -->
+        <label for="paymentSlip">แนบสลิบเงิน</label>
+        <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" onchange="previewImage(event)">
 
-   <div id="qrcode-container">
-      <img id="qrcode" />
-   </div>
-   <button id="save-btn" onclick="saveQRCode()" style="display:none;">บันทึก QR Code</button>
-   <button onclick="goBack()">กลับไปยังตะกร้า</button>
+        <div id="imagePreviewContainer">
+            <img id="paymentSlipPreview" style="display: none; max-width: 100%; margin-top: 20px;">
+            <button type="button" id="removeImageBtn" style="display: none;" onclick="removeImage()">ลบรูปภาพ</button>
+        </div>
 
-   <script>
-      // ดึงข้อมูลจาก URL query (amount) ที่ส่งจากหน้า cafe.html
-      const urlParams = new URLSearchParams(window.location.search);
-      const amount = urlParams.get('amount');
-      document.getElementById("amount").value = amount; // แสดงยอดรวมในฟอร์ม
+        <!-- ปุ่มสั่งซื้อ -->
+        <button type="button" id="orderBtn" disabled onclick="placeOrder()">สั่งซื้อ</button>
+    </form>
 
-      // ดึงข้อมูลตะกร้าสินค้าจาก localStorage
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    <div id="qrcode-container">
+        <img id="qrcode" />
+    </div>
+    <button id="save-btn" onclick="saveQRCode()" style="display:none;">บันทึก QR Code</button>
+    <button onclick="goBack()">กลับไปยังตะกร้า</button>
 
-      // แสดงรายการสินค้าที่ผู้ใช้สั่งซื้อ
-      function displayOrder() {
-         const orderList = document.getElementById('order-list');
-         let total = 0;
+    <script>
+        // ดึงข้อมูลจาก URL query (amount) ที่ส่งจากหน้า cafe.html
+        const urlParams = new URLSearchParams(window.location.search);
+        const amount = urlParams.get('amount');
+        document.getElementById("amount").value = amount; // แสดงยอดรวมในฟอร์ม
 
-         cart.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)`;
-            orderList.appendChild(li);
-            total += item.price * item.quantity;
-         });
+        // ดึงข้อมูลตะกร้าสินค้าจาก localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-         document.getElementById('total-price').textContent = `รวม: ${total} บาท`;
-         
-      }
+        // แสดงรายการสินค้าที่ผู้ใช้สั่งซื้อ
+        function displayOrder() {
+            const orderList = document.getElementById('order-list');
+            let total = 0;
 
-      displayOrder(); // แสดงรายการสินค้าที่ผู้ใช้สั่ง
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)`;
+                orderList.appendChild(li);
+                total += item.price * item.quantity;
+            });
 
-      // เมื่อผู้ใช้คลิกปุ่ม "สั่งซื้อ"
-      function placeOrder() {
-         // ตรวจสอบว่าได้แนบสลิบหรือไม่
-         const paymentSlip = document.getElementById('paymentSlip').files.length;
-         if (paymentSlip === 0) {
-            alert("กรุณาแนบสลิบเงินก่อนทำการสั่งซื้อ");
-            return; // ไม่ให้ดำเนินการต่อถ้ายังไม่มีการแนบสลิบ
-         }
+            document.getElementById('total-price').textContent = `รวม: ${total} บาท`;
+        }
 
-         // ตรวจสอบว่าเบอร์โทรศัพท์กรอกหรือไม่
-         const phone = document.getElementById('phone').value;
-         if (!phone) {
-            alert("กรุณากรอกเบอร์โทรศัพท์ก่อนทำการสั่งซื้อ");
-            return; // ไม่ให้ดำเนินการต่อถ้าไม่มีเบอร์โทรศัพท์
-         }
+        displayOrder(); // แสดงรายการสินค้าที่ผู้ใช้สั่ง
 
-         // แสดงข้อความแทนการส่งไปยัง backend
-         alert("คำสั่งซื้อของคุณได้รับการบันทึกในระบบ!");
-         localStorage.removeItem('cart');
-         window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
-      }
+        // เมื่อผู้ใช้คลิกปุ่ม "สั่งซื้อ"
+        function placeOrder() {
+            // ตรวจสอบว่าได้แนบสลิบหรือไม่
+            const paymentSlip = document.getElementById('paymentSlip').files.length;
+            if (paymentSlip === 0) {
+                alert("กรุณาแนบสลิบเงินก่อนทำการสั่งซื้อ");
+                return; // ไม่ให้ดำเนินการต่อถ้ายังไม่มีการแนบสลิบ
+            }
 
-      // ฟังก์ชันสร้าง QR Code
-      function generateQRCode() {
-         const promptPayId = "0917956349";  // ใส่หมายเลขพร้อมเพย์ของคุณ
-         if (amount > 0) {
-            const qrCodeUrl = `https://promptpay.io/${promptPayId}/${amount}.png`;
-            document.getElementById('qrcode').src = qrCodeUrl;
-            document.getElementById('qrcode').style.display = 'block';
+            // ตรวจสอบว่าเบอร์โทรศัพท์กรอกหรือไม่
+            const phone = document.getElementById('phone').value;
+            if (!phone) {
+                alert("กรุณากรอกเบอร์โทรศัพท์ก่อนทำการสั่งซื้อ");
+                return; // ไม่ให้ดำเนินการต่อถ้าไม่มีเบอร์โทรศัพท์
+            }
 
-            const saveBtn = document.getElementById("save-btn");
-            saveBtn.style.display = 'inline'; // แสดงปุ่มบันทึก
-         } else {
-            alert("กรุณาเพิ่มสินค้าในตะกร้าก่อน");
-         }
-      }
+            // สร้างเนื้อหาอีเมล
+            const emailSubject = "รายการสั่งซื้อจากร้านกาแฟ";
+            let emailBody = "เรียน ChaoWang (Yen) Cafe,\n\n";
+            emailBody += "นี่คือรายละเอียดการสั่งซื้อจากลูกค้า:\n\n";
+            cart.forEach(item => {
+                emailBody += `- ${item.product} - ${item.quantity} แก้ว (ราคา: ${item.price} บาท)\n`;
+            });
+            emailBody += `\nราคา: ${amount} บาท\n`;
+            emailBody += `เบอร์โทรศัพท์: ${phone}\n`;
 
-      // ฟังก์ชันแสดงตัวอย่างรูปภาพ
-      function previewImage(event) {
-         const file = event.target.files[0];
+            // ส่งอีเมล (นี่คือลิงก์การส่งอีเมลโดยใช้ mailto)
+            const mailtoLink = `mailto:toppt349@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
 
-         // ตรวจสอบขนาดไฟล์
-         if (file.size > 2 * 1024 * 1024) {
-            alert("ขนาดไฟล์เกินขีดจำกัด (2MB) กรุณาเลือกไฟล์ที่มีขนาดเล็กลง");
-            document.getElementById('paymentSlip').value = ""; // ลบไฟล์ที่เลือก
-            return;
-         }
+            // ล้างข้อมูลตะกร้า
+            localStorage.removeItem('cart');
+            window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
+        }
 
-         const reader = new FileReader();
-         reader.onload = function() {
-            const preview = document.getElementById('paymentSlipPreview');
-            preview.src = reader.result;
-            preview.style.display = 'block'; // แสดงตัวอย่าง
+        // ฟังก์ชันสร้าง QR Code
+        function generateQRCode() {
+            const promptPayId = "0917956349";  // ใส่หมายเลขพร้อมเพย์ของคุณ
+            if (amount > 0) {
+                const qrCodeUrl = `https://promptpay.io/${promptPayId}/${amount}.png`;
+                document.getElementById('qrcode').src = qrCodeUrl;
+                document.getElementById('qrcode').style.display = 'block';
 
-            // แสดงปุ่มลบ
-            document.getElementById('removeImageBtn').style.display = 'inline';
+                const saveBtn = document.getElementById("save-btn");
+                saveBtn.style.display = 'inline'; // แสดงปุ่มบันทึก
+            } else {
+                alert("กรุณาเพิ่มสินค้าในตะกร้าก่อน");
+            }
+        }
 
-            // เปิดใช้งานปุ่มสั่งซื้อ
-            document.getElementById('orderBtn').disabled = false;
-         };
+        // ฟังก์ชันแสดงตัวอย่างรูปภาพ
+        function previewImage(event) {
+            const file = event.target.files[0];
 
-         if (file) {
-            reader.readAsDataURL(file);
-         }
-      }
+            // ตรวจสอบขนาดไฟล์
+            if (file.size > 2 * 1024 * 1024) {
+                alert("ขนาดไฟล์เกินขีดจำกัด (2MB) กรุณาเลือกไฟล์ที่มีขนาดเล็กลง");
+                document.getElementById('paymentSlip').value = ""; // ลบไฟล์ที่เลือก
+                return;
+            }
 
-      // ฟังก์ชันลบรูปภาพ
-      function removeImage() {
-         // ลบไฟล์ที่เลือก
-         document.getElementById('paymentSlip').value = "";
-         
-         // ซ่อนตัวอย่างภาพและปุ่มลบ
-         document.getElementById('paymentSlipPreview').style.display = 'none';
-         document.getElementById('removeImageBtn').style.display = 'none';
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('paymentSlipPreview');
+                preview.src = reader.result;
+                preview.style.display = 'block'; // แสดงตัวอย่าง
 
-         // ปิดใช้งานปุ่มสั่งซื้อ
-         document.getElementById('orderBtn').disabled = true;
-      }
+                // แสดงปุ่มลบ
+                document.getElementById('removeImageBtn').style.display = 'inline';
 
-      // ฟังก์ชันบันทึก QR Code
-      function saveQRCode() {
-         const qrCodeImg = document.getElementById("qrcode").src;  // รับ URL ของภาพ QR Code
-         if (!qrCodeImg) {
-            alert("กรุณาสร้าง QR Code ก่อน");
-            return;  // ถ้าไม่มี QR Code ให้แจ้งเตือน
-         }
+                // เปิดใช้งานปุ่มสั่งซื้อ
+                document.getElementById('orderBtn').disabled = false;
+            };
 
-         // สร้างลิงก์ดาวน์โหลด
-         const link = document.createElement('a');
-         link.href = qrCodeImg;  // ใช้ URL ของ QR Code
-         link.download = 'qrcode.png';  // ตั้งชื่อไฟล์เป็น qrcode.png
-         
-         // คลิกที่ลิงก์เพื่อให้เริ่มดาวน์โหลด
-         document.body.appendChild(link);
-         link.click();
-         document.body.removeChild(link);  // ลบลิงก์หลังจากดาวน์โหลด
-      }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
 
-      // ฟังก์ชันย้อนกลับ
-      function goBack() {
-         window.history.back();
-      }
-    
-   </script>
+        // ฟังก์ชันลบรูปภาพ
+        function removeImage() {
+            // ลบไฟล์ที่เลือก
+            document.getElementById('paymentSlip').value = "";
+
+            // ซ่อนตัวอย่างภาพและปุ่มลบ
+            document.getElementById('paymentSlipPreview').style.display = 'none';
+            document.getElementById('removeImageBtn').style.display = 'none';
+
+            // ปิดใช้งานปุ่มสั่งซื้อ
+            document.getElementById('orderBtn').disabled = true;
+        }
+
+        // ฟังก์ชันบันทึก QR Code
+        function saveQRCode() {
+            const qrCodeImg = document.getElementById("qrcode").src;  // รับ URL ของภาพ QR Code
+            if (!qrCodeImg) {
+                alert("กรุณาสร้าง QR Code ก่อน");
+                return;  // ถ้าไม่มี QR Code ให้แจ้งเตือน
+            }
+
+            // สร้างลิงก์ดาวน์โหลด
+            const link = document.createElement('a');
+            link.href = qrCodeImg;  // ใช้ URL ของ QR Code
+            link.download = 'qrcode.png';  // ตั้งชื่อไฟล์เป็น qrcode.png
+
+            // คลิกที่ลิงก์เพื่อให้เริ่มดาวน์โหลด
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);  // ลบลิงก์หลังจากดาวน์โหลด
+        }
+
+        // ฟังก์ชันย้อนกลับ
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
-<script src="checkout.js" defer></script>
