@@ -13,13 +13,14 @@
    <ul id="order-list"></ul> <!-- รายการสินค้าที่สั่งซื้อ -->
    <p id="total-price">รวม: 0 บาท</p> <!-- ยอดรวมทั้งหมด -->
 
-   <form id="paymentForm">
+   <!-- ฟอร์มสำหรับการกรอกข้อมูลและแนบสลิบ -->
+   <form id="paymentForm" method="post" autocomplete="off" name="hello-sheet" enctype="multipart/form-data">
       <label for="amount">ยอดรวม</label>
       <input type="number" id="amount" name="amount" readonly required> <label for="amount">บาท</label>
 
-      <!-- เพิ่มช่องกรอกเบอร์โทรศัพท์ -->
+      <!-- ช่องกรอกเบอร์โทรศัพท์ -->
       <label for="phone">เบอร์โทรศัพท์</label>
-      <input type="tel" id="phone" name="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
+      <input type="tel" name="phone" class="form-control" id="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
 
       <button type="button" onclick="generateQRCode()">สร้าง QR Code</button>
       
@@ -33,7 +34,7 @@
       </div>
 
       <!-- ปุ่มสั่งซื้อ -->
-      <button type="button" id="orderBtn" disabled onclick="placeOrder()">สั่งซื้อ</button>
+      <button type="submit" id="orderBtn" disabled>สั่งซื้อ</button>
    </form>
 
    <div id="qrcode-container">
@@ -64,37 +65,17 @@
          });
 
          document.getElementById('total-price').textContent = `รวม: ${total} บาท`;
+         document.getElementById("amount").value = total; // แสดงยอดรวมที่ฟอร์ม
       }
 
       displayOrder(); // แสดงรายการสินค้าที่ผู้ใช้สั่ง
 
-      // เมื่อผู้ใช้คลิกปุ่ม "สั่งซื้อ"
-      function placeOrder() {
-         // ตรวจสอบว่าได้แนบสลิบหรือไม่
-         const paymentSlip = document.getElementById('paymentSlip').files.length;
-         if (paymentSlip === 0) {
-            alert("กรุณาแนบสลิบเงินก่อนทำการสั่งซื้อ");
-            return; // ไม่ให้ดำเนินการต่อถ้ายังไม่มีการแนบสลิบ
-         }
-
-         // ตรวจสอบว่าเบอร์โทรศัพท์กรอกหรือไม่
-         const phone = document.getElementById('phone').value;
-         if (!phone) {
-            alert("กรุณากรอกเบอร์โทรศัพท์ก่อนทำการสั่งซื้อ");
-            return; // ไม่ให้ดำเนินการต่อถ้าไม่มีเบอร์โทรศัพท์
-         }
-
-         // แสดงข้อความแทนการส่งไปยัง backend
-         alert("คำสั่งซื้อของคุณได้รับการบันทึกในระบบ!");
-         localStorage.removeItem('cart');
-         window.location.href = "confirmation.html"; // ไปยังหน้าอื่นหลังจากสั่งซื้อ
-      }
-
       // ฟังก์ชันสร้าง QR Code
       function generateQRCode() {
          const promptPayId = "0917956349";  // ใส่หมายเลขพร้อมเพย์ของคุณ
-         if (amount > 0) {
-            const qrCodeUrl = `https://promptpay.io/${promptPayId}/${amount}.png`;
+         const totalAmount = document.getElementById("amount").value;
+         if (totalAmount > 0) {
+            const qrCodeUrl = `https://promptpay.io/${promptPayId}/${totalAmount}.png`;
             document.getElementById('qrcode').src = qrCodeUrl;
             document.getElementById('qrcode').style.display = 'block';
 
@@ -170,7 +151,34 @@
       function goBack() {
          window.history.back();
       }
+
+      // เมื่อผู้ใช้คลิกปุ่ม "บันทึก" จะส่งข้อมูลไปยัง Google Sheets
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyoiCTGNnVeXiwU7_v_ubPfeIKqZB5bsH_2tjafy8y0aC22KPoaHXOQ70p2xc524l-v8A/exec';
+      const form = document.forms['hello-sheet'];
+
+      form.addEventListener('submit', e => {
+         e.preventDefault();
+
+         // เพิ่มข้อมูลที่ต้องการส่งไป Google Sheets
+         const phone = document.getElementById("phone").value;
+         const orderDetails = cart.map(item => `${item.product} - ${item.quantity} แก้ว`).join(", ");
+         const totalAmount = document.getElementById("amount").value;
+
+         const formData = new FormData(form);
+         formData.append("phone", phone);
+         formData.append("orderDetails", orderDetails);
+         formData.append("totalAmount", totalAmount);
+
+         // ตรวจสอบว่าได้แนบสลิบหรือไม่
+         const paymentSlip = document.getElementById('paymentSlip').files[0];
+         if (paymentSlip) {
+            formData.append("paymentSlip", paymentSlip);
+         }
+
+         fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => alert("บันทึกข้อมูลเรียบร้อยแล้ว.."))
+            .catch(error => console.error('Error!', error.message));
+      });
    </script>
 </body>
 </html>
-<script src="order.js" defer></script>
