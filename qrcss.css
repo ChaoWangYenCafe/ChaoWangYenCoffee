@@ -1,21 +1,9 @@
 body {
-   background-image: url('https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCoffee/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/Bg/bg.png'); /* ใส่ URL ของภาพ */
-   background-size: cover; /* ทำให้ภาพพื้นหลังขยายครอบคลุมพื้นที่ทั้งหมด */
-   background-position: center; /* จัดตำแหน่งภาพให้อยู่กลาง */
-   background-attachment: fixed; /* ทำให้ภาพพื้นหลังคงที่ไม่เลื่อนตามการเลื่อนหน้า */
-}
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-    margin: 0;
-    padding: 40px; /* เพิ่ม padding */
-    background-color: #f9f9f9;
-}
-
+    background-image: url('https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCoffee/refs/heads/main/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2/Bg/bg.png'); /* ใส่ URL ของภาพ */
+    background-size: cover; /* ทำให้ภาพพื้นหลังขยายครอบคลุมพื้นที่ทั้งหมด */
+    background-position: center; /* จัดตำแหน่งภาพให้อยู่กลาง */
+    background-attachment: fixed; /* ทำให้ภาพพื้นหลังคงที่ไม่เลื่อนตามการเลื่อนหน้า */
+ }
 h2 {
     font-size: 48px; /* ขยายขนาดฟอนต์ให้ใหญ่ขึ้น */
     margin-bottom: 40px;
@@ -110,7 +98,7 @@ body {
 
 h2 {
     font-size: 36px;
-    color: #5D3FD3;
+    color: #000000;
     margin-bottom: 20px;
 }
 
