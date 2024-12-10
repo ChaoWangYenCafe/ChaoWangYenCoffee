@@ -1,5 +1,5 @@
 body {
-   background-image: url('file:///C:/Users/toppt/Downloads/bg.png'); /* ใส่ URL ของภาพ */
+   background-image: url('https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCoffee/refs/heads/main/bg.png'); /* ใส่ URL ของภาพ */
    background-size: cover; /* ทำให้ภาพพื้นหลังขยายครอบคลุมพื้นที่ทั้งหมด */
    background-position: center; /* จัดตำแหน่งภาพให้อยู่กลาง */
    background-attachment: fixed; /* ทำให้ภาพพื้นหลังคงที่ไม่เลื่อนตามการเลื่อนหน้า */
