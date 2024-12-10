@@ -1,3 +1,10 @@
+body {
+   background-image: url('file:///C:/Users/toppt/Downloads/bg.png'); /* ใส่ URL ของภาพ */
+   background-size: cover; /* ทำให้ภาพพื้นหลังขยายครอบคลุมพื้นที่ทั้งหมด */
+   background-position: center; /* จัดตำแหน่งภาพให้อยู่กลาง */
+   background-attachment: fixed; /* ทำให้ภาพพื้นหลังคงที่ไม่เลื่อนตามการเลื่อนหน้า */
+}
+
 /* กำหนดสไตล์พื้นฐาน */
 body {
    font-family: Arial, sans-serif;
@@ -114,21 +121,21 @@ header {
 /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */
 .product:hover {
    transform: scale(1.05); /* ขยายขนาด 10% */
-   background-color: #e8f5e9; /* เปลี่ยนพื้นหลังเป็นสีเขียวอ่อน */
-   color: #317d2e; /* เปลี่ยนสีข้อความเป็นสีเขียวเข้ม */
-   box-shadow: 0 4px 15px rgba(248, 248, 248, 0.2); /* เพิ่มเงา */
+   background-color: rgba(218, 185, 103, 0.616); /* เปลี่ยนพื้นหลังเป็นสีเขียวอ่อน */
+   color: #3700fff3; /* เปลี่ยนสีข้อความเป็นสีเขียวเข้ม */
+   box-shadow: 0 4px 15px rgba(138, 78, 0, 0.438); /* เพิ่มเงา */
    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* การเปลี่ยนอย่างนุ่มนวล */
 }
 /* ตะกร้าสินค้าลอย */
 #floating-cart {
    position: fixed;
    bottom: 20px;
-   right: 20px;
+   right: 20px;  
    z-index: 1000; /* ทำให้ลอยอยู่ด้านบนสุด */
 }
 
 #toggle-cart-btn {
-   background-color: #4CAF50;
+   background-color: #ff0000;
    color: white;
    border: none;
    border-radius: 50%;
