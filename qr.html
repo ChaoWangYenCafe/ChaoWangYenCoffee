@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+   <link rel="website icon" type="png" href="images/">
    <meta charset="UTF-8">
    <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
    <link rel="stylesheet" href="qrcss.css"> <!-- เพิ่มลิงก์ไปยังไฟล์ CSS -->
+   <style>
+      #temperature-checkboxes {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 20px;
+         margin: 20px 0;
+      }
+      #temperature-checkboxes label {
+         font-size: 1.5rem;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+      #temperature-checkboxes input[type="radio"] {
+         width: 25px;
+         height: 25px;
+      }
+      #topping-checkboxes {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 20px;
+         margin: 20px 0;
+      }
+      #topping-checkboxes label {
+         font-size: 1.5rem;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+      #topping-checkboxes input[type="checkbox"] {
+         width: 25px;
+         height: 25px;
+      }
+   </style>
 </head>
 <body>
    <img src="logo.png" alt="โลโก้ร้านกาแฟ" class="logo">
@@ -27,7 +64,24 @@
       <input type="tel" name="phone" class="form-control" id="phone" placeholder="กรุณากรอกเบอร์โทรศัพท์" required>
 
       <button type="button" onclick="generateQRCode()">สร้าง QR Code</button>
-      
+
+      <!-- ปุ่มเย็นและร้อน -->
+      <div id="temperature-checkboxes">
+         <label>
+            <input type="radio" name="temperature" value="เย็น"> เย็น
+         </label>
+         <label>
+            <input type="radio" name="temperature" value="ร้อน"> ร้อน
+         </label>
+      </div>
+
+      <!-- ตัวเลือกใส่ไข่มุก -->
+      <div id="topping-checkboxes">
+         <label>
+            <input type="checkbox" id="addPearl" name="addPearl" value="true" onchange="updatePrice()"> ใส่ไข่มุก (+5 บาท)
+         </label>
+      </div>
+
       <!-- ฟิลด์สำหรับการแนบสลิบเงิน -->
       <label for="paymentSlip">แนบสลิบเงิน</label>
       <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" onchange="previewImage(event)">
@@ -56,6 +110,9 @@
       // ดึงข้อมูลตะกร้าสินค้าจาก localStorage
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+      // ตัวแปรเก็บสถานะอุณหภูมิ
+      let selectedTemperature = "";
+
       // แสดงรายการสินค้าที่ผู้ใช้สั่งซื้อ
       function displayOrder() {
          const orderList = document.getElementById('order-list');
@@ -74,9 +131,29 @@
 
       displayOrder(); // แสดงรายการสินค้าที่ผู้ใช้สั่ง
 
+      // ฟังก์ชันอัปเดตราคาเมื่อเลือกใส่ไข่มุก
+      function updatePrice() {
+         let total = parseFloat(document.getElementById("amount").value);
+         const addPearl = document.getElementById("addPearl").checked;
+         const today = new Date();
+         const isWednesday = today.getDay() === 3; // ตรวจสอบว่าวันนี้เป็นวันพุธหรือไม่
+
+         if (addPearl) {
+            if (!isWednesday) {
+               total += 5;
+            }
+         } else {
+            if (!isWednesday) {
+               total -= 5;
+            }
+         }
+         document.getElementById("total-price").textContent = `รวม: ${total} บาท`;
+         document.getElementById("amount").value = total;
+      }
+
       // ฟังก์ชันสร้าง QR Code
       function generateQRCode() {
-         const promptPayId = "0618250065";  // ใส่หมายเลขพร้อมเพย์ของคุณ
+         const promptPayId = "0917956349";  // ใส่หมายเลขพร้อมเพย์ของคุณ
          const totalAmount = document.getElementById("amount").value;
          if (totalAmount > 0) {
             const qrCodeUrl = `https://promptpay.io/${promptPayId}/${totalAmount}.png`;
@@ -157,7 +234,7 @@
       }
 
       // เมื่อผู้ใช้คลิกปุ่ม "บันทึก" จะส่งข้อมูลไปยัง Google Sheets
-      const scriptURL = 'https://script.google.com/macros/s/AKfycby6-GNoWumWGGn0jR3qc4cdR1texwdwzoIvTCPtYnvtiErGA8eaR5U7HrZW9OW9OiN4/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzNr0LYuLGVCqZhYn0u-5-ZcprcP01XYDcJIwks32mXK9zQlV7Br_VD266S3qrVPZJpDw/exec';
       const form = document.forms['hello-sheet'];
 
       form.addEventListener('submit', e => {
@@ -174,6 +251,7 @@
          formData.append("phone", phone);
          formData.append("orderDetails", orderDetails);
          formData.append("totalAmount", totalAmount);
+         formData.append("temperature", selectedTemperature); // เพิ่มข้อมูลอุณหภูมิ
 
          // ตรวจสอบว่าได้แนบสลิบหรือไม่
          const paymentSlip = document.getElementById('paymentSlip').files[0];
@@ -182,7 +260,7 @@
          }
 
          fetch(scriptURL, { method: 'POST', body: formData })
-            .then(response => alert("สั่งซื้อเรียบร้อย!"))
+            .then(response => alert("บันทึกข้อมูลเรียบร้อยแล้ว.."))
             .catch(error => console.error('Error!', error.message));
       });
    </script>

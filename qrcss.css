@@ -334,3 +334,21 @@ h3 {
         padding: 10px;
     }
 }
+#temperature-checkboxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* ระยะห่างระหว่างปุ่ม */
+    margin-top: 20px;
+}
+
+#temperature-checkboxes label {
+    font-size: 20px; /* เพิ่มขนาดฟอนต์ของป้ายชื่อ */
+    color: #333; /* สีข้อความ */
+}
+
+#temperature-checkboxes input[type="radio"] {
+    width: 30px; /* เพิ่มขนาดความกว้าง */
+    height: 30px; /* เพิ่มขนาดความสูง */
+    accent-color: #5D3FD3; /* เปลี่ยนสีให้สอดคล้องกับธีม */
+}
