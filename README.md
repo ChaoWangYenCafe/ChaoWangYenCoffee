@@ -67,6 +67,17 @@
             max-width: 300px;
             border-radius: 10px;
         }
+        .overlay {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* ยึดตำแหน่งให้คงที่ */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
     </style>
 </head>
 <body>
