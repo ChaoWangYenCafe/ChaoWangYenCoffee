@@ -1,18 +1,19 @@
 
 <html lang="th">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
     <link rel="stylesheet" href="style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
     <style>
+        
         /* ตั้งค่าพื้นหลังให้มีรูปภาพ */
         body {
             font-family: 'Prompt', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background: url('[file:///C:/Users/toppt/Downloads/Coffe.png](https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCoffee/refs/heads/main/Coffe.png)') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
         }
@@ -77,7 +78,6 @@
             <h1>ยินดีต้อนรับสู่</h1>
             <p><h1>ChaoWangYenCoffee</h1></p>
             <div class="qr-code">
-                <img src="[file:///C:/Users/toppt/Downloads/Coffe%20(1).png](https://raw.githubusercontent.com/ChaoWangYenCafe/ChaoWangYenCoffee/refs/heads/main/Coffe%20(1).png)" alt="QR Code พร้อมเพย์">
             </div>
             <br>
             <button class="btn" onclick="goToShop()">ไปยังหน้าซื้อของ</button>
