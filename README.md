@@ -1,26 +1,24 @@
 
 <html lang="th">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ชำระเงินผ่านพร้อมเพย์ - ร้านกาแฟ</title>
+    <title>หน้าแรก</title>
     <link rel="stylesheet" href="style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
     <style>
-        
         /* ตั้งค่าพื้นหลังให้มีรูปภาพ */
         body {
             font-family: 'Prompt', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-size: cover;
+            
             color: #fff;
         }
 
         /* เพิ่มเลเยอร์สีเข้มเพื่อให้ตัวหนังสืออ่านง่าย */
         .overlay {
-            background-color: rgba(0, 0, 0, 0.5);
+           
             height: 100vh;
             display: flex;
             align-items: center;
@@ -29,7 +27,7 @@
 
         /* การ์ดตรงกลาง */
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: #5d40373b;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -76,8 +74,9 @@
     <div class="overlay">
         <div class="container">
             <h1>ยินดีต้อนรับสู่</h1>
-            <p><h1>ChaoWangYenCoffee</h1></p>
+            <p><h2>ChaoWangYenCoffee</h2></p>
             <div class="qr-code">
+                
             </div>
             <br>
             <button class="btn" onclick="goToShop()">ไปยังหน้าซื้อของ</button>
