@@ -33,7 +33,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             width: 100%;
-            color: #5d4037;
+            color: #000000;
         }
 
         h1 {
@@ -91,6 +91,10 @@
             </div>
             <br>
             <button class="btn" onclick="goToShop()">ไปยังหน้าซื้อของ</button>
+            <a href="https://forms.gle/zce3VxtoE1JpdAHt7" target="_blank">
+                <button class="btn">แบบสอบถาม</button>
+            </a>
+            
         </div>
     </div>
 
