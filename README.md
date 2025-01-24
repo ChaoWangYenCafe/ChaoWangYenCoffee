@@ -1,10 +1,10 @@
 
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0027)file:///E:/Coffee/Home.html -->
+<html lang="th"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>หน้าแรก</title>
-    <link rel="stylesheet" href="style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
+    <link rel="stylesheet" href="./หน้าแรก_files/style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
     <style>
         /* ตั้งค่าพื้นหลังให้มีรูปภาพ */
         body {
@@ -85,12 +85,14 @@
     <div class="overlay">
         <div class="container">
             <h1>ยินดีต้อนรับสู่</h1>
-            <p><h2>ChaoWangYenCoffee</h2></p>
+            <p></p><h2>ChaoWangYenCoffee</h2><p></p>
             <div class="qr-code">
                 
             </div>
             <br>
             <button class="btn" onclick="goToShop()">ไปยังหน้าซื้อของ</button>
+        </br>
+        <br>
             <a href="https://forms.gle/zce3VxtoE1JpdAHt7" target="_blank">
                 <button class="btn">แบบสอบถาม</button>
             </a>
@@ -104,5 +106,6 @@
         }
     </script>
 
-</body>
-</html>
+
+
+</body></html>
