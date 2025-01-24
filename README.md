@@ -94,7 +94,7 @@
         </br>
         <br>
             <a href="https://forms.gle/zce3VxtoE1JpdAHt7" target="_blank">
-                <button class="btn">แบบสอบถาม</button>
+                <button class="btn">แบบสอบถาม📄</button>
             </a>
             
         </div>
