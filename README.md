@@ -91,7 +91,7 @@
             </div>
             <br>
             <button class="btn" onclick="goToShop()">ไปยังหน้าซื้อของ</button>
-        </br>
+        
         <br>
             <a href="https://forms.gle/zce3VxtoE1JpdAHt7" target="_blank">
                 <button class="btn">แบบสอบถาม📄</button>
