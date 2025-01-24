@@ -4,7 +4,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>หน้าแรก</title>
-    <link rel="stylesheet" href="./หน้าแรก_files/style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
+    <link rel="stylesheet" href="style.css"><!-- ลิงก์ไฟล์ CSS ภายนอก -->
     <style>
         /* ตั้งค่าพื้นหลังให้มีรูปภาพ */
         body {
