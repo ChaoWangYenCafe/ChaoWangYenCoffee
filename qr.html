@@ -92,6 +92,12 @@
             <input type="radio" name="temperature" value="ร้อน"> ร้อน
          </label>
       </div>
+      <div id="temperature-checkboxes">
+         <label>
+            <input type="radio" name="pun" value="ปั่น"> ปั่น
+            <input type="radio" name="pun" value="ไม่ปั่น"> ไม่ปั่น
+         </label>
+      </div>
 
       <div id="topping-checkboxes">
          <label>
@@ -117,7 +123,7 @@
    <button type="button" onclick="goToShop()">กลับไปยังหน้าร้าน</button>
 
    <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwNtq8_LS5XVHuicZl6ydTzvu0t3Y8S_7izLuT4pWoATqmKXs8RX-GdN9cSqYwUhJkDoA/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwfu-pTjCOVBHQOGu0flwpl5rNpYb_Laj0udZnU98W1U_Ka_TVSV3GkMfi-w3ZUyXXS-g/exec';
 
       // Display order details
       function displayOrder() {
@@ -201,7 +207,7 @@
 
       // QR Code generation
       function generateQRCode() {
-         const promptPayId = "0618250065";  // Replace with your PromptPay ID
+         const promptPayId = "0917956349";  // Replace with your PromptPay ID
          const totalAmount = document.getElementById("amount").value;
          if (totalAmount > 0) {
             const qrCodeUrl = `https://promptpay.io/${promptPayId}/${totalAmount}.png`;
